@@ -8,6 +8,7 @@ from docutils.core import publish_parts
 from markdown import markdown
 from ssg.content import Content
 from ssg import hooks
+from ssg.extensions.stats import written
 
 
 class Parser:
@@ -51,6 +52,7 @@ class MarkdownParser(Parser):
         sys.stdout.write(
             "\x1b[1;32m{} converted to HTML. Metadata: {}\n".format(path.name, content)
         )
+        written()
 
 
 class ReStructuredTextParser(Parser):
@@ -64,3 +66,4 @@ class ReStructuredTextParser(Parser):
         sys.stdout.write(
             "\x1b[1;32m{} converted to HTML. Metadata: {}\n".format(path.name, content)
         )
+        written()
