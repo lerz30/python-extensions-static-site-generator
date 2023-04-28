@@ -38,7 +38,7 @@ class Site:
                 self.create_dir(path)
             elif path.is_file():
                 self.run_parser(path)
-        hooks.event("build")
+        hooks.event("stats")
 
     @staticmethod
     def error(message):
